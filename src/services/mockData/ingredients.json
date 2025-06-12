@@ -1,0 +1,152 @@
+[
+  {
+    "id": "1",
+    "name": "Chicken Breast",
+    "category": "Meat",
+    "unit": "lb"
+  },
+  {
+    "id": "2",
+    "name": "Tomatoes",
+    "category": "Produce",
+    "unit": "piece"
+  },
+  {
+    "id": "3",
+    "name": "Onion",
+    "category": "Produce",
+    "unit": "piece"
+  },
+  {
+    "id": "4",
+    "name": "Garlic",
+    "category": "Produce",
+    "unit": "clove"
+  },
+  {
+    "id": "5",
+    "name": "Olive Oil",
+    "category": "Pantry",
+    "unit": "tbsp"
+  },
+  {
+    "id": "6",
+    "name": "Salt",
+    "category": "Pantry",
+    "unit": "tsp"
+  },
+  {
+    "id": "7",
+    "name": "Black Pepper",
+    "category": "Pantry",
+    "unit": "tsp"
+  },
+  {
+    "id": "8",
+    "name": "Rice",
+    "category": "Pantry",
+    "unit": "cup"
+  },
+  {
+    "id": "9",
+    "name": "Eggs",
+    "category": "Dairy",
+    "unit": "piece"
+  },
+  {
+    "id": "10",
+    "name": "Milk",
+    "category": "Dairy",
+    "unit": "cup"
+  },
+  {
+    "id": "11",
+    "name": "Cheese",
+    "category": "Dairy",
+    "unit": "cup"
+  },
+  {
+    "id": "12",
+    "name": "Pasta",
+    "category": "Pantry",
+    "unit": "cup"
+  },
+  {
+    "id": "13",
+    "name": "Bell Peppers",
+    "category": "Produce",
+    "unit": "piece"
+  },
+  {
+    "id": "14",
+    "name": "Spinach",
+    "category": "Produce",
+    "unit": "cup"
+  },
+  {
+    "id": "15",
+    "name": "Mushrooms",
+    "category": "Produce",
+    "unit": "cup"
+  },
+  {
+    "id": "16",
+    "name": "Flour",
+    "category": "Pantry",
+    "unit": "cup"
+  },
+  {
+    "id": "17",
+    "name": "Sugar",
+    "category": "Pantry",
+    "unit": "cup"
+  },
+  {
+    "id": "18",
+    "name": "Butter",
+    "category": "Dairy",
+    "unit": "tbsp"
+  },
+  {
+    "id": "19",
+    "name": "Carrots",
+    "category": "Produce",
+    "unit": "piece"
+  },
+  {
+    "id": "20",
+    "name": "Potatoes",
+    "category": "Produce",
+    "unit": "piece"
+  },
+  {
+    "id": "21",
+    "name": "Broccoli",
+    "category": "Produce",
+    "unit": "cup"
+  },
+  {
+    "id": "22",
+    "name": "Salmon",
+    "category": "Meat",
+    "unit": "piece"
+  },
+  {
+    "id": "23",
+    "name": "Lemon",
+    "category": "Produce",
+    "unit": "piece"
+  },
+  {
+    "id": "24",
+    "name": "Herbs",
+    "category": "Produce",
+    "unit": "tbsp"
+  },
+  {
+    "id": "25",
+    "name": "Ground Beef",
+    "category": "Meat",
+    "unit": "lb"
+  }
+]

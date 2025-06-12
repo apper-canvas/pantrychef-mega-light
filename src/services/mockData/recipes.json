@@ -1,0 +1,164 @@
+[
+  {
+    "id": "1",
+    "title": "Classic Herb-Roasted Chicken",
+    "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=500&h=300&fit=crop",
+    "ingredients": [
+      { "ingredientId": "1", "name": "Chicken Breast", "quantity": 1, "unit": "lb" },
+      { "ingredientId": "4", "name": "Garlic", "quantity": 3, "unit": "cloves" },
+      { "ingredientId": "5", "name": "Olive Oil", "quantity": 2, "unit": "tbsp" },
+      { "ingredientId": "6", "name": "Salt", "quantity": 1, "unit": "tsp" },
+      { "ingredientId": "7", "name": "Black Pepper", "quantity": 0.5, "unit": "tsp" },
+      { "ingredientId": "24", "name": "Fresh Herbs", "quantity": 2, "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Preheat oven to 425°F (220°C).",
+      "Pat chicken breast dry and season generously with salt and pepper.",
+      "Mince garlic and mix with olive oil and chopped herbs.",
+      "Rub the herb mixture all over the chicken breast.",
+      "Place in a baking dish and roast for 20-25 minutes until internal temperature reaches 165°F.",
+      "Let rest for 5 minutes before slicing and serving."
+    ],
+    "prepTime": 10,
+    "cookTime": 25,
+    "servings": 4,
+    "tags": ["gluten-free", "high-protein", "30-minute meals"],
+    "matchPercentage": 0
+  },
+  {
+    "id": "2",
+    "title": "Fresh Garden Pasta Primavera",
+    "image": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500&h=300&fit=crop",
+    "ingredients": [
+      { "ingredientId": "12", "name": "Pasta", "quantity": 2, "unit": "cups" },
+      { "ingredientId": "13", "name": "Bell Peppers", "quantity": 2, "unit": "pieces" },
+      { "ingredientId": "21", "name": "Broccoli", "quantity": 1, "unit": "cup" },
+      { "ingredientId": "19", "name": "Carrots", "quantity": 2, "unit": "pieces" },
+      { "ingredientId": "4", "name": "Garlic", "quantity": 3, "unit": "cloves" },
+      { "ingredientId": "5", "name": "Olive Oil", "quantity": 3, "unit": "tbsp" },
+      { "ingredientId": "11", "name": "Parmesan Cheese", "quantity": 0.5, "unit": "cup" }
+    ],
+    "instructions": [
+      "Cook pasta according to package directions until al dente.",
+      "While pasta cooks, heat olive oil in a large skillet over medium-high heat.",
+      "Add sliced bell peppers and carrots, cook for 3-4 minutes.",
+      "Add broccoli florets and minced garlic, cook for 2-3 minutes more.",
+      "Drain pasta and add to the skillet with vegetables.",
+      "Toss everything together with grated Parmesan cheese.",
+      "Season with salt and pepper, serve immediately."
+    ],
+    "prepTime": 15,
+    "cookTime": 15,
+    "servings": 4,
+    "tags": ["vegetarian", "30-minute meals", "colorful"],
+    "matchPercentage": 0
+  },
+  {
+    "id": "3",
+    "title": "Creamy Mushroom Risotto",
+    "image": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=500&h=300&fit=crop",
+    "ingredients": [
+      { "ingredientId": "8", "name": "Arborio Rice", "quantity": 1.5, "unit": "cups" },
+      { "ingredientId": "15", "name": "Mushrooms", "quantity": 2, "unit": "cups" },
+      { "ingredientId": "3", "name": "Onion", "quantity": 1, "unit": "piece" },
+      { "ingredientId": "4", "name": "Garlic", "quantity": 3, "unit": "cloves" },
+      { "ingredientId": "18", "name": "Butter", "quantity": 4, "unit": "tbsp" },
+      { "ingredientId": "11", "name": "Parmesan Cheese", "quantity": 0.75, "unit": "cup" }
+    ],
+    "instructions": [
+      "Warm 4 cups of vegetable broth in a separate pot and keep on low heat.",
+      "Sauté diced onion in 2 tbsp butter until translucent, about 3 minutes.",
+      "Add minced garlic and sliced mushrooms, cook until mushrooms are golden.",
+      "Add rice and stir for 2 minutes until grains are coated and slightly toasted.",
+      "Add warm broth one ladle at a time, stirring constantly until absorbed.",
+      "Continue adding broth and stirring for 20-25 minutes until rice is creamy.",
+      "Stir in remaining butter and Parmesan cheese before serving."
+    ],
+    "prepTime": 10,
+    "cookTime": 35,
+    "servings": 6,
+    "tags": ["vegetarian", "comfort-food", "creamy"],
+    "matchPercentage": 0
+  },
+  {
+    "id": "4",
+    "title": "Mediterranean Salmon Bowl",
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&h=300&fit=crop",
+    "ingredients": [
+      { "ingredientId": "22", "name": "Salmon Fillet", "quantity": 4, "unit": "pieces" },
+      { "ingredientId": "8", "name": "Rice", "quantity": 1, "unit": "cup" },
+      { "ingredientId": "2", "name": "Cherry Tomatoes", "quantity": 1, "unit": "cup" },
+      { "ingredientId": "23", "name": "Lemon", "quantity": 2, "unit": "pieces" },
+      { "ingredientId": "5", "name": "Olive Oil", "quantity": 3, "unit": "tbsp" },
+      { "ingredientId": "14", "name": "Spinach", "quantity": 2, "unit": "cups" }
+    ],
+    "instructions": [
+      "Cook rice according to package directions and set aside.",
+      "Season salmon fillets with salt, pepper, and lemon juice.",
+      "Heat olive oil in a skillet over medium-high heat.",
+      "Cook salmon for 4-5 minutes per side until flaky and cooked through.",
+      "In the same pan, quickly sauté spinach until wilted.",
+      "Serve salmon over rice with sautéed spinach and cherry tomatoes.",
+      "Drizzle with remaining olive oil and lemon juice."
+    ],
+    "prepTime": 10,
+    "cookTime": 20,
+    "servings": 4,
+    "tags": ["gluten-free", "high-protein", "mediterranean", "30-minute meals"],
+    "matchPercentage": 0
+  },
+  {
+    "id": "5",
+    "title": "Beef and Vegetable Stir Fry",
+    "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&h=300&fit=crop",
+    "ingredients": [
+      { "ingredientId": "25", "name": "Ground Beef", "quantity": 1, "unit": "lb" },
+      { "ingredientId": "13", "name": "Bell Peppers", "quantity": 2, "unit": "pieces" },
+      { "ingredientId": "3", "name": "Onion", "quantity": 1, "unit": "piece" },
+      { "ingredientId": "4", "name": "Garlic", "quantity": 4, "unit": "cloves" },
+      { "ingredientId": "8", "name": "Rice", "quantity": 1, "unit": "cup" },
+      { "ingredientId": "5", "name": "Olive Oil", "quantity": 2, "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Cook rice according to package directions.",
+      "Heat olive oil in a large wok or skillet over high heat.",
+      "Add ground beef and cook, breaking up with a spoon, until browned.",
+      "Add sliced onions and bell peppers, stir-fry for 3-4 minutes.",
+      "Add minced garlic and cook for another minute until fragrant.",
+      "Season with salt and pepper to taste.",
+      "Serve immediately over steamed rice."
+    ],
+    "prepTime": 10,
+    "cookTime": 15,
+    "servings": 4,
+    "tags": ["high-protein", "30-minute meals", "stir-fry"],
+    "matchPercentage": 0
+  },
+  {
+    "id": "6",
+    "title": "Spinach and Cheese Omelette",
+    "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&h=300&fit=crop",
+    "ingredients": [
+      { "ingredientId": "9", "name": "Eggs", "quantity": 6, "unit": "pieces" },
+      { "ingredientId": "14", "name": "Fresh Spinach", "quantity": 2, "unit": "cups" },
+      { "ingredientId": "11", "name": "Cheese", "quantity": 0.5, "unit": "cup" },
+      { "ingredientId": "18", "name": "Butter", "quantity": 2, "unit": "tbsp" },
+      { "ingredientId": "6", "name": "Salt", "quantity": 0.5, "unit": "tsp" },
+      { "ingredientId": "7", "name": "Black Pepper", "quantity": 0.25, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Beat eggs in a bowl with salt and pepper.",
+      "Heat butter in a non-stick pan over medium-low heat.",
+      "Add spinach and cook until wilted, about 1-2 minutes.",
+      "Pour beaten eggs over the spinach in the pan.",
+      "Let eggs set on the bottom for 2-3 minutes without stirring.",
+      "Sprinkle cheese over half of the omelette.",
+      "Fold omelette in half and slide onto plate. Serve immediately."
+    ],
+    "prepTime": 5,
+    "cookTime": 10,
+    "servings": 2,
+    "tags": ["vegetarian", "low-carb", "15-minute meals", "breakfast"],
+    "matchPercentage": 0
+  }
+]
