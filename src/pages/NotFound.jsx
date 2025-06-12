@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import ApperIcon from '@/components/ApperIcon';
-import Button from '@/components/atoms/Button';
+import ApperIcon from '../components/ApperIcon';
 
-const NotFoundContent = () => {
+const NotFound = () => {
   const navigate = useNavigate();
 
   return (
@@ -29,23 +28,27 @@ const NotFoundContent = () => {
         </p>
         
         <div className="space-y-4">
-          <Button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => navigate('/')}
-            className="w-full bg-primary text-white hover:bg-primary/90"
+            className="w-full px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors"
           >
             Back to Recipe Finder
-          </Button>
+          </motion.button>
           
-          <Button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => navigate(-1)}
-            className="w-full bg-surface text-secondary hover:bg-surface/80"
+            className="w-full px-6 py-3 bg-surface text-secondary rounded-lg font-medium hover:bg-surface/80 transition-colors"
           >
             Go Back
-          </Button>
+          </motion.button>
         </div>
       </motion.div>
     </div>
   );
 };
 
-export default NotFoundContent;
+export default NotFound;
