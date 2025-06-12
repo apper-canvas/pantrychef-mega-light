@@ -28,12 +28,19 @@ export const recipeService = {
     return [...recipesData];
   },
 
-  async getById(id) {
+async getById(id) {
     await delay(200);
-    const recipe = recipesData.find(r => r.id === parseInt(id));
-    if (!recipe) {
-      throw new Error('Recipe not found');
+    
+    if (!id) {
+      throw new Error('Recipe ID is required');
     }
+    
+    // Ensure consistent string comparison since JSON IDs are strings
+    const recipe = recipesData.find(r => r.id === String(id));
+    if (!recipe) {
+      throw new Error(`Recipe with ID ${id} not found`);
+    }
+    
     return { ...recipe };
   },
 
@@ -79,36 +86,43 @@ export const recipeService = {
     return results;
   },
 
-  async getFavorites() {
+async getFavorites() {
     await delay(200);
     const favoriteIds = getFavoritesFromStorage();
     const favoriteRecipes = recipesData.filter(recipe => 
-      favoriteIds.includes(recipe.id)
+      favoriteIds.includes(String(recipe.id))
     );
     return favoriteRecipes.map(recipe => ({ ...recipe }));
   },
 
-  async toggleFavorite(recipeId) {
+async toggleFavorite(recipeId) {
     await delay(100);
-    const favorites = getFavoritesFromStorage();
-    const recipeIdNum = parseInt(recipeId);
     
-    if (favorites.includes(recipeIdNum)) {
+    if (!recipeId) {
+      throw new Error('Recipe ID is required');
+    }
+    
+    const favorites = getFavoritesFromStorage();
+    const recipeIdStr = String(recipeId);
+    
+    if (favorites.includes(recipeIdStr)) {
       // Remove from favorites
-      const newFavorites = favorites.filter(id => id !== recipeIdNum);
+      const newFavorites = favorites.filter(id => id !== recipeIdStr);
       saveFavoritesToStorage(newFavorites);
       return false;
     } else {
       // Add to favorites
-      const newFavorites = [...favorites, recipeIdNum];
+      const newFavorites = [...favorites, recipeIdStr];
       saveFavoritesToStorage(newFavorites);
       return true;
     }
   },
 
   async isFavorite(recipeId) {
+    if (!recipeId) return false;
+    
     const favorites = getFavoritesFromStorage();
-return favorites.includes(parseInt(recipeId));
+    return favorites.includes(String(recipeId));
   },
 
   async findByIngredients(ingredientIds, filters = {}) {

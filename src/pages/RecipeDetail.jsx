@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { toast } from 'react-toastify';
-import ApperIcon from '../components/ApperIcon';
-import { recipeService, shoppingService } from '../services';
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { toast } from 'react-toastify'
+import ApperIcon from '@/components/ApperIcon'
+import { recipeService, shoppingService } from '@/services'
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -13,21 +13,35 @@ const RecipeDetail = () => {
   const [error, setError] = useState(null);
   const [checkedIngredients, setCheckedIngredients] = useState(new Set());
 
-  useEffect(() => {
+useEffect(() => {
     const loadRecipe = async () => {
       setLoading(true);
       setError(null);
       try {
+        if (!id) {
+          throw new Error('Recipe ID is required');
+        }
         const recipeData = await recipeService.getById(id);
+        if (!recipeData) {
+          throw new Error('Recipe not found');
+        }
         setRecipe(recipeData);
       } catch (err) {
-        setError(err.message || 'Failed to load recipe');
-        toast.error('Failed to load recipe');
+        const errorMessage = err.message || 'Failed to load recipe';
+        setError(errorMessage);
+        toast.error(errorMessage);
+        console.error('Recipe loading error:', err);
       } finally {
         setLoading(false);
       }
     };
-    loadRecipe();
+    
+    if (id) {
+      loadRecipe();
+    } else {
+      setError('Invalid recipe ID');
+      setLoading(false);
+    }
   }, [id]);
 
   const toggleIngredientCheck = (ingredientId) => {
