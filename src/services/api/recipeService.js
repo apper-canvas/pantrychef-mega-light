@@ -1,57 +1,152 @@
-import { delay } from '../index';
 import recipesData from '../mockData/recipes.json';
 
-class RecipeService {
-  constructor() {
-    this.recipes = [...recipesData];
+// Simulate API delay
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+// Get favorites from localStorage
+const getFavoritesFromStorage = () => {
+  try {
+    const favorites = localStorage.getItem('favorites');
+    return favorites ? JSON.parse(favorites) : [];
+  } catch (error) {
+    console.error('Error reading favorites from localStorage:', error);
+    return [];
   }
+};
 
+// Save favorites to localStorage
+const saveFavoritesToStorage = (favorites) => {
+  try {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  } catch (error) {
+    console.error('Error saving favorites to localStorage:', error);
+  }
+};
+
+export const recipeService = {
   async getAll() {
     await delay(300);
-    return [...this.recipes];
-  }
+    return [...recipesData];
+  },
 
   async getById(id) {
-    await delay(300);
-    const recipe = this.recipes.find(item => item.id === id);
+    await delay(200);
+    const recipe = recipesData.find(r => r.id === parseInt(id));
     if (!recipe) {
       throw new Error('Recipe not found');
     }
     return { ...recipe };
-  }
+  },
+
+  async search(query, filters = {}) {
+    await delay(400);
+    let results = [...recipesData];
+
+    // Filter by search query
+    if (query) {
+      const searchTerm = query.toLowerCase();
+      results = results.filter(recipe =>
+        recipe.title.toLowerCase().includes(searchTerm) ||
+        recipe.ingredients.some(ingredient =>
+          ingredient.name.toLowerCase().includes(searchTerm)
+        ) ||
+        recipe.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+      );
+    }
+
+    // Filter by difficulty
+    if (filters.difficulty && filters.difficulty !== 'all') {
+      results = results.filter(recipe => 
+        recipe.difficulty.toLowerCase() === filters.difficulty.toLowerCase()
+      );
+    }
+
+    // Filter by cooking time
+    if (filters.maxTime) {
+      results = results.filter(recipe => 
+        (recipe.prepTime + recipe.cookTime) <= parseInt(filters.maxTime)
+      );
+    }
+
+    // Filter by dietary restrictions
+    if (filters.dietary && filters.dietary !== 'all') {
+      results = results.filter(recipe =>
+        recipe.tags.some(tag => 
+          tag.toLowerCase() === filters.dietary.toLowerCase()
+        )
+      );
+    }
+
+    return results;
+  },
+
+  async getFavorites() {
+    await delay(200);
+    const favoriteIds = getFavoritesFromStorage();
+    const favoriteRecipes = recipesData.filter(recipe => 
+      favoriteIds.includes(recipe.id)
+    );
+    return favoriteRecipes.map(recipe => ({ ...recipe }));
+  },
+
+  async toggleFavorite(recipeId) {
+    await delay(100);
+    const favorites = getFavoritesFromStorage();
+    const recipeIdNum = parseInt(recipeId);
+    
+    if (favorites.includes(recipeIdNum)) {
+      // Remove from favorites
+      const newFavorites = favorites.filter(id => id !== recipeIdNum);
+      saveFavoritesToStorage(newFavorites);
+      return false;
+    } else {
+      // Add to favorites
+      const newFavorites = [...favorites, recipeIdNum];
+      saveFavoritesToStorage(newFavorites);
+      return true;
+    }
+  },
+
+  async isFavorite(recipeId) {
+    const favorites = getFavoritesFromStorage();
+return favorites.includes(parseInt(recipeId));
+  },
 
   async findByIngredients(ingredientIds, filters = {}) {
     await delay(400);
     
-    let filteredRecipes = [...this.recipes];
+    if (!ingredientIds || ingredientIds.length === 0) {
+      return [];
+    }
+    
+    let filteredRecipes = [...recipesData];
 
     // Filter by ingredients and calculate match percentage
     filteredRecipes = filteredRecipes.map(recipe => {
-      const recipeIngredientIds = recipe.ingredients.map(ing => ing.ingredientId);
+      const recipeIngredientIds = recipe.ingredients?.map(ing => ing.ingredientId) || [];
       const matchingIngredients = ingredientIds.filter(id => 
         recipeIngredientIds.includes(id)
       );
-      const matchPercentage = Math.round(
-        (matchingIngredients.length / recipeIngredientIds.length) * 100
-      );
+      const matchPercentage = recipeIngredientIds.length > 0 
+        ? Math.round((matchingIngredients.length / recipeIngredientIds.length) * 100)
+        : 0;
       
       return {
         ...recipe,
         matchPercentage
       };
-    }).filter(recipe => recipe.matchPercentage > 0); // Only show recipes with at least one matching ingredient
+    }).filter(recipe => recipe.matchPercentage > 0);
 
     // Apply dietary filters
     if (filters.dietary && filters.dietary.length > 0) {
       filteredRecipes = filteredRecipes.filter(recipe =>
-        filters.dietary.every(diet => recipe.tags.includes(diet))
+        recipe.tags && filters.dietary.every(diet => recipe.tags.includes(diet))
       );
     }
 
     // Apply cook time filter
     if (filters.cookTime) {
       filteredRecipes = filteredRecipes.filter(recipe => {
-        const totalTime = recipe.prepTime + recipe.cookTime;
+        const totalTime = (recipe.prepTime || 0) + (recipe.cookTime || 0);
         if (filters.cookTime === 15) return totalTime <= 15;
         if (filters.cookTime === 30) return totalTime <= 30;
         if (filters.cookTime === 60) return totalTime >= 60;
@@ -64,36 +159,4 @@ class RecipeService {
 
     return filteredRecipes;
   }
-
-  async create(recipe) {
-    await delay(300);
-    const newRecipe = {
-      ...recipe,
-      id: Date.now().toString()
-    };
-    this.recipes.push(newRecipe);
-    return { ...newRecipe };
-  }
-
-  async update(id, data) {
-    await delay(300);
-    const index = this.recipes.findIndex(item => item.id === id);
-    if (index === -1) {
-      throw new Error('Recipe not found');
-    }
-    this.recipes[index] = { ...this.recipes[index], ...data };
-    return { ...this.recipes[index] };
-  }
-
-  async delete(id) {
-    await delay(300);
-    const index = this.recipes.findIndex(item => item.id === id);
-    if (index === -1) {
-      throw new Error('Recipe not found');
-    }
-    this.recipes.splice(index, 1);
-    return true;
-  }
-}
-
-export const recipeService = new RecipeService();
+};

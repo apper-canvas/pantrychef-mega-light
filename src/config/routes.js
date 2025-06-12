@@ -1,8 +1,8 @@
-import Home from '../pages/Home';
-import RecipeDetail from '../pages/RecipeDetail';
-import ShoppingList from '../pages/ShoppingList';
-import NotFound from '../pages/NotFound';
-
+import Home from '@/pages/Home';
+import RecipeDetail from '@/pages/RecipeDetail';
+import ShoppingList from '@/pages/ShoppingList';
+import Favorites from '@/pages/Favorites';
+import NotFound from '@/pages/NotFound';
 export const routes = {
   home: {
     id: 'home',
@@ -10,6 +10,13 @@ export const routes = {
     path: '/',
     icon: 'ChefHat',
     component: Home
+  },
+  favorites: {
+    id: 'favorites',
+    label: 'Favorites',
+    path: '/favorites',
+    icon: 'Heart',
+    component: Favorites
   },
   shoppingList: {
     id: 'shoppingList',
