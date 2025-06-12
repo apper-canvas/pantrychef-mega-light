@@ -1,7 +1,7 @@
-import Home from '../pages/Home';
-import RecipeDetail from '../pages/RecipeDetail';
-import ShoppingList from '../pages/ShoppingList';
-import NotFound from '../pages/NotFound';
+import HomePage from '@/components/pages/HomePage';
+import RecipeDetailPage from '@/components/pages/RecipeDetailPage';
+import ShoppingListPage from '@/components/pages/ShoppingListPage';
+import NotFoundPage from '@/components/pages/NotFoundPage';
 
 export const routes = {
   home: {
@@ -9,28 +9,28 @@ export const routes = {
     label: 'Find Recipes',
     path: '/',
     icon: 'ChefHat',
-    component: Home
+component: HomePage
   },
   shoppingList: {
     id: 'shoppingList',
     label: 'Shopping List',
     path: '/shopping',
     icon: 'ShoppingCart',
-    component: ShoppingList
+component: ShoppingListPage
   },
   recipeDetail: {
     id: 'recipeDetail',
     label: 'Recipe',
     path: '/recipe/:id',
     icon: 'Book',
-    component: RecipeDetail,
+component: RecipeDetailPage,
     hideFromNav: true
   },
   notFound: {
     id: 'notFound',
     label: 'Not Found',
     path: '*',
-    component: NotFound,
+component: NotFoundPage,
     hideFromNav: true
   }
 };
